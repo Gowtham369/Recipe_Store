@@ -1,17 +1,16 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./NavBar";
+import NavBar from "./Components/NavBar";
 import image from "./IMG_0006.jpg";
-import "./App.scss";
-import About from "./About";
+import About from "./Components/About";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link
 } from 'react-router-dom';
-import Home from "./Home";
-import Contact from "./Contact";
+import Home from "./Components/Home";
+import Contact from "./Components/Contact";
 
 
 function App() {

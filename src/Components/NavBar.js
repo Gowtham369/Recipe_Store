@@ -1,6 +1,6 @@
 import React from "react";
-import "./NavBar.scss";
-import logo from "./logo.png";
+import "../Assets/NavBar.scss";
+import logo from "../logo.png";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 export default function NavBar() {

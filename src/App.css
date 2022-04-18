@@ -40,6 +40,10 @@
   height: 50px;
   line-height: 1.2;
 }
+.button-group .Button:first-child{
+  margin-right: 10px;
+}
+
 .Button{
   
   background-color: #c2fbd7;
