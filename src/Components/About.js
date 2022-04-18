@@ -1,6 +1,6 @@
 import React from "react";
-import logo from './logo.png';
-import './About.scss';
+import logo from '../logo.png';
+import '../Assets/About.scss';
 
 export default function About() {
 	return (

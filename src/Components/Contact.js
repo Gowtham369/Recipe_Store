@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { Form, Button, Alert } from "react-bootstrap";
-import{ init } from '@emailjs/browser';
+import emailjs, { init } from "@emailjs/browser";
+import "../Assets/Contact.scss";
 init("user_2xg7Ijvj5d4DbEOLiqS9Z");
 
 export default function Contact() {
@@ -68,26 +67,25 @@ export default function Contact() {
   }
   return (
     <div className="contact" id="contact">
-      <div data-aos="fade-right">Get in touch with me</div>
-      <Form
-        data-aos="fade-up-right"
+      <div>Get in touch with us.</div>
+      <form
         className="contact-form"
         onSubmit={sendEmail}
       >
-        <Form.Control type="text" placeholder="Name" name="user_name" />
+        <input type="text" placeholder="Name" name="user_name" />
         {validname ? <></> : <div>{validenameres}</div>}
 
-        <Form.Control placeholder="Email" name="user_email" />
+        <input placeholder="Email" name="user_email" />
         {validemail ? <></> : <div>{validemailres}</div>}
-        <Form.Control as="textarea" placeholder="Message" name="message" />
+        <textarea placeholder="Message" name="message" />
         {validmessage ? <></> : <div>Message cannot be empty</div>}
-        <Alert show={show} onClose={() => setShow(false)} dismissible>
+        <alert show={show} onClose={() => setShow(false)} dismissible>
           {contactrequestres}
-        </Alert>
-        <Button type="submit" value="Send">
+        </alert>
+        <button type="submit" value="Send">
           Submit
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div>
   );
 }
