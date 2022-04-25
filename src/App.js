@@ -18,7 +18,7 @@ function App() {
 
 	return (
 		<div>
-			<img src={image} className="bgImage"></img>
+			<img alt="background-image" src={image} className="bgImage"></img>
 			<Router>
 				<NavBar />
 				<Routes>

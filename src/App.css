@@ -137,3 +137,8 @@
   width: 70%;
   color:black
 }
+
+.recipe-cards-wrap{
+  height: fit-content;
+  margin-bottom: 60px;
+}

@@ -72,18 +72,18 @@ export default function Contact() {
         className="contact-form"
         onSubmit={sendEmail}
       >
-        <input type="text" placeholder="Name" name="user_name" />
+        <input type="text" placeholder="Name" name="user_name" label="Name"/>
         {validname ? <></> : <div>{validenameres}</div>}
 
-        <input placeholder="Email" name="user_email" />
+        <input placeholder="Email" name="user_email" label="Email"/>
         {validemail ? <></> : <div>{validemailres}</div>}
-        <textarea placeholder="Message" name="message" />
+        <textarea placeholder="Message" name="message" label="message" />
         {validmessage ? <></> : <div>Message cannot be empty</div>}
         <alert show={show} onClose={() => setShow(false)} dismissible>
           {contactrequestres}
         </alert>
-        <button type="submit" value="Send">
-          Submit
+        <button className="button" type="submit" value="Send">
+          <span>Submit</span>
         </button>
       </form>
     </div>

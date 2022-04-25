@@ -2,20 +2,47 @@
   .recipe-card{
     float: left;
     margin-left: 30px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     background-color: rgba(41, 41, 41, 0.796);
     border-bottom: 1px solid #e5e5e5;
     margin-top: 20px;
     color: wheat;
-    text-align: center;
-    width: 25%;
+    width: 27.7%;
     border-radius: 6px;
     .recipe-card-title{
       font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
     }
+    .recipe-card-text{
+      li{margin:10px}
+      margin-top: -.9rem;
+      font-size: 1.2rem;
+    }
+    .recipeDetails{
+      font-size: 1rem;
+  
+        .fadein, .fadeout {
+          display: none;
+          >div>text{
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+    }
+  .fadein {
+        display: block;
+  }}
+
     .recipe-card-button{
+      .downarrow{
+        font-size: 1.2rem;
+        margin-right: 8px;
+        transition: transform .6s ease-in-out;
+      }
+      .uparrow{
+        transform: rotate(180deg);
+        transition: transform .6s ease-in-out;
+      }
+      margin-top: 1em;
+      margin-bottom: 1em;
       button{
         display: flex;
         justify-content: center;
