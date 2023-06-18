@@ -11,6 +11,7 @@ export default function Routing() {
     <div>
       <Router>
           <Route exact path='/'>Home</Route>
+          <Route exact path='/suggest-recipe'>SuggestRecipe</Route>
           <Route exact path='/about'>About</Route>
           <Route exact path='/contact'>Contact</Route>
       </Router>

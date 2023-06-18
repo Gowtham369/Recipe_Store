@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
+import SuggestRecipe from "./Components/SuggestRecipe";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 				<Routes>
           <Route exact path='/' element={<Home />}/>
           <Route exact path='/about' element={<About />}/>
+          <Route exact path='/suggest-recipe'element={<SuggestRecipe />} />
           <Route exact path='/contact' element={<Contact />}/>
 		    </Routes>
 			</Router>

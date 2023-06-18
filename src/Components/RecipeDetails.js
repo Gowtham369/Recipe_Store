@@ -11,14 +11,14 @@ export default function RecipeDetails({searchResult,toggleContent,setContentIsOp
 				<div>
 					<text>Ingredients</text><hr/>
 					<ul>
-					{searchResult.ingredients.map((ingredient, index) => {
-						return <li key={index}>{ingredient.ingredientName}</li>;
+					{searchResult?.ingredients?.map((ingredient, index) => {
+						return <li key={index}>{ingredient?.ingredientName}</li>;
 						})}
 						</ul>
 				</div>
 				<div>
 					<text>Instructions</text><br/><hr/>
-					{searchResult.instructions}
+					{searchResult?.instructions}
 				</div>
 			</div>
 			<div className="recipe-card-button">

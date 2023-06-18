@@ -13,13 +13,13 @@ export default function RecipeCards({key,searchResult}) {
 		<div key={key} className="recipe-card-container">
 			<div className="recipe-card">
 				<div className="recipe-card-title">
-					<h3>{searchResult.recipeName}</h3>
+					<h3>{searchResult ? searchResult.recipeName : "Recipe Name"}</h3>
 				</div>
 				{!contentIsOpen && <div className="recipe-card-text">
-					<text>Cuisine: <b>{searchResult?.cusine}</b></text>
-					<ul><li>{searchResult?.diet}</li></ul>
+					<text>Cuisine: <b>{searchResult ? searchResult?.cusine : "Recipe Cuisine"}</b></text>
+					<ul><li>{searchResult ? searchResult?.diet : "Recipe Diet"}</li></ul>
 				</div>}
-				<RecipeDetails contentIsOpen={contentIsOpen} setContentIsOpen={setContentIsOpen} toggleContent={toggleContent} searchResult={searchResult}/>
+				<RecipeDetails contentIsOpen={contentIsOpen} setContentIsOpen={setContentIsOpen} toggleContent={toggleContent} searchResult={searchResult}/> 
 			</div>
 		</div>
 	);
