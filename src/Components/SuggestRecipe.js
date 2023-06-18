@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import emailjs, { init } from "@emailjs/browser";
-import "../Assets/Contact.scss";
-init("user_2xg7Ijvj5d4DbEOLiqS9Z");
+import React, { useState }  from 'react'
+import '../Assets/Contact.scss'
 
-export default function Contact() {
+export default function SuggestRecipe() {
   const [validemail, setValidmail] = useState(true);
   const [validname, setValidname] = useState(true);
+  const [validCuisine, setValidCuisine] = useState(true);
+  const [validIngredients, setValidIngredients] = useState(true);
+  const [validRecipeInstructions, setValidRecipeInstructions] = useState(true);
   const [validemailres, setValidemailres] = useState("");
   const [validenameres, setValidnameres] = useState("");
   const [validmessage, setValidmessage] = useState(true);
-  const [show, setShow] = useState(false);
-  const [contactrequestres, setContactrequestres] = useState("");
+  
 
-  function sendEmail(e) {
+  function submitForm(e) {
     e.preventDefault();
     if (e.target.elements.namedItem("user_name").value === "") {
       setValidnameres("Name is required");
@@ -28,6 +28,12 @@ export default function Contact() {
       setValidemailres("Email is required");
       setValidmail(false);
       setValidname(true);
+    } else if (e.target.elements.namedItem("Cuisine").value === "") {
+      setValidCuisine(false);
+    } else if (e.target.elements.namedItem("Ingredients").value === "") {
+      setValidIngredients(false);
+    } else if (e.target.elements.namedItem("Recipe Instructions").value === "") {
+      setValidRecipeInstructions(false);
     } else if (
       !/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})$/.test(
         e.target.elements.namedItem("user_email").value
@@ -42,46 +48,33 @@ export default function Contact() {
       setValidmail(true);
       setValidmessage(true);
       setValidname(true);
-      setContactrequestres("Sending...");
-      setShow(true);
-      emailjs
-        .sendForm(
-          "service_49ov9zs",
-          "template_i2n1a7i",
-          e.target,
-          "user_2xg7Ijvj5d4DbEOLiqS9Z"
-        )
-        .then(
-          (result) => {
-            console.log(result.status);
-            if (result.status === 200) {
-              setContactrequestres("Your request recieved.");
-            }
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
+      setValidCuisine(true);
+      setValidIngredients(true);
+      setValidRecipeInstructions(true);
       e.target.reset();
     }
   }
   return (
-    <div className="contact" id="contact">
+    <div className="contact width-60" id="contact">
       <div>Get in touch with us.</div>
       <form
         className="contact-form"
-        onSubmit={sendEmail}
+        onSubmit={submitForm}
       >
         <input type="text" placeholder="Name" name="user_name" label="Name"/>
         {validname ? <></> : <div>{validenameres}</div>}
 
         <input placeholder="Email" name="user_email" label="Email"/>
         {validemail ? <></> : <div>{validemailres}</div>}
+        <input placeholder="Cuisine" name="Cuisine" label="Cuisine"/>
+        {validCuisine ? <></> : <div>Cuisine is required</div>}
+        <input placeholder="Meal Type" name="Meal Type" label="Meal Type"/>
+        <textarea placeholder="Ingredients" name="Ingredients" label="Ingredients" />
+        {validIngredients ? <></> : <div>Ingredients are required</div>}
+        <textarea placeholder="Recipe Instructions" name="Recipe Instructions" label="Recipe Instructions" />
+        {validRecipeInstructions ? <></> : <div>Recipe Instructions are required</div>}
         <textarea placeholder="Message" name="message" label="message" />
         {validmessage ? <></> : <div>Message cannot be empty</div>}
-        <alert show={show} onClose={() => setShow(false)} dismissible>
-          {contactrequestres}
-        </alert>
         <button className="button" type="submit" value="Send">
           <span>Submit</span>
         </button>

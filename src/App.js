@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
+import SuggestRecipe from "./Components/SuggestRecipe";
 
 
 function App() {
@@ -18,12 +19,13 @@ function App() {
 
 	return (
 		<div>
-			<img src={image} className="bgImage"></img>
+			<img alt="background-image" src={image} className="bgImage"></img>
 			<Router>
 				<NavBar />
 				<Routes>
           <Route exact path='/' element={<Home />}/>
           <Route exact path='/about' element={<About />}/>
+          <Route exact path='/suggest-recipe'element={<SuggestRecipe />} />
           <Route exact path='/contact' element={<Contact />}/>
 		    </Routes>
 			</Router>

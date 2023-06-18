@@ -12,6 +12,9 @@ export default function NavBar() {
 						<Link to="/">Home</Link>
 					</div>
 					<div className="nav-bar-item">
+						<Link to="/suggest-recipe">Suggest Recipe</Link>
+					</div>
+					<div className="nav-bar-item">
 						<Link to="/about">About</Link>
 					</div>
 					<div className="nav-bar-item">

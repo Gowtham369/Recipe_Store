@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../Assets/Pagination.scss';
 
 export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToTop, pagesToBottom, ...args }) => {
 	const componentChildren = args.children ? (args.children?.length>1 ? [...args.children] : [args.children]) : [],
@@ -14,10 +15,10 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 		[elementsEndIndex, setElementsEndIndex] = useState(limit);
 
 	useEffect(() => {
-		var pagesArray = [];
-		for (let i = 1; i <= pages; ++i) pagesArray.push(i);
-		setPagesArray(pagesArray);
-	}, []);
+		var pagesArrayL = [];
+		for (let i = 1; i <= pages; ++i) pagesArrayL.push(i);
+		setPagesArray(pagesArrayL);
+	}, [pages]);
 
 	useEffect(() => {
 		selectedPage >= endIndex && incrementIndexes();
@@ -128,7 +129,7 @@ export const PaginationNav = ({ ...properties }) => {
 			{properties.results && <span className="sui-pagination-results">{properties.elements} results</span>}
 			<ul className="sui-pagination">
 				{properties.skip && (
-					<li onClick={properties.handleSkipToFirstPage}>
+					<li onClick={properties.handleSkipToFirstPage} className={properties.selectedPage <= 1 ? 'no-cursor':''}>
 						<a disabled={properties.selectedPage <= 1}>
 							<span aria-hidden="false" className="sui-screen-reader-text">
 								{properties.skipToFirstLabel || "Go to first page"}
@@ -137,7 +138,7 @@ export const PaginationNav = ({ ...properties }) => {
 						</a>
 					</li>
 				)}
-				<li onClick={properties.handlePreviousPage}>
+				<li onClick={properties.handlePreviousPage} className={properties.selectedPage <= 1 ? 'no-cursor':''}>
 					<a disabled={properties.selectedPage <= 1}>
 						<span aria-hidden="false" className="sui-screen-reader-text">
 							{properties.previousLabel || "Go to previous page"}
@@ -164,7 +165,7 @@ export const PaginationNav = ({ ...properties }) => {
 						<a>&#8230;</a>
 					</li>
 				)}
-				<li onClick={properties.handleNextPage}>
+				<li onClick={properties.handleNextPage} className={properties.selectedPage >= properties.pages ? 'no-cursor':''}>
 					<a disabled={properties.selectedPage >= properties.pages}>
 						<span aria-hidden="false" className="sui-screen-reader-text">
 							{properties.nextLabel || "Go to next page."}
@@ -173,7 +174,7 @@ export const PaginationNav = ({ ...properties }) => {
 					</a>
 				</li>
 				{properties.skip && (
-					<li onClick={properties.handleSkipToLastPage}>
+					<li onClick={properties.handleSkipToLastPage} className={properties.selectedPage >= properties.pages ? 'no-cursor':''}>
 						<a disabled={properties.selectedPage >= properties.pages}>
 							<span aria-hidden="false" className="sui-screen-reader-text">
 								{properties.skipToLastLabel || "Go to last page."}
